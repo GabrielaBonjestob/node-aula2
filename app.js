@@ -9,7 +9,7 @@ app.get("/", (requisicao, resposta) => {
 });
 
 app.get("/:nome", (req, res) => {
-  const nomeInformado = req.params.nome;
+  const nomeInformado = req.params.nome.toLowerCase();
   const pet = pets.find((infoPet) => infoPet.nome === nomeInformado);
 
   res.send(pet);
