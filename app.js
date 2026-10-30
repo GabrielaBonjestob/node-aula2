@@ -8,4 +8,11 @@ app.get("/", (requisicao, resposta) => {
   resposta.send(pets);
 });
 
+app.get("/:nome", (req, res) => {
+  const nomeInformado = req.params.nome;
+  const pet = pets.find((infoPet) => infoPet.nome === nomeInformado);
+
+  res.send(pet);
+});
+
 app.listen(port, () => console.log(`Servidor rodando na porta ${port}`));
