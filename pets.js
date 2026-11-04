@@ -12,7 +12,7 @@ const pets = [
     nome: "billy",
     tutor: "Gheorghe Below",
     idade: 8,
-    vacinada: false,
+    vacinado: false,
   },
 
   {
