@@ -23,6 +23,11 @@ app.get("/:nome", (req, res) => {
 app.put("/:nome", (req, res) => {
   const nomeInformado = req.params.nome.toLowerCase();
   const nomeSelecionado = pets.find((pet) => pet.nome === nomeInformado);
+
+  if (!nomeInformado) {
+    res.status(404).send("Não existe o Pet informado");
+  }
+
   const campos = Object.keys(req.body);
 
   for (let campo of campos) {
@@ -43,6 +48,7 @@ app.delete("/:nome", (req, res) => {
   const indicePetSelecionado = pets.findIndex(
     (pet) => pet.nome === nomeInformado,
   );
+
   const petRemovido = pets.splice(indicePetSelecionado, 1);
   res.status(200).send(petRemovido);
 });
